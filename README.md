@@ -42,3 +42,81 @@ HAVING COUNT(o.OrderID) >= 5
 ORDER BY
 MAX(o.OrderDate) DESC;
 ```
+
+## JS Question
+
+1. Make a javascript or typescript function that converts any string to Title Case.
+
+```js
+const message = "SHORT AND STOUT"; // Try edit me
+
+formattedMessage = toTitleCase(message);
+function toTitleCase(inputStr) {
+  return inputStr
+    .toLowerCase()
+    .split(" ")
+    .map((char) => char.at(0).toUpperCase() + char.slice(1))
+    .join(" ");
+}
+
+// Update header text
+document.querySelector("#header").innerHTML = formattedMessage;
+
+// Log to console
+console.log(message);
+```
+
+2. Fix this code, using promises
+
+```js
+function delay(ms) {
+  // add promise code here
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+delay(3000).then(() => alert("runs after 3 seconds"));
+```
+
+3. Rewrite using Async/Await:
+
+```js
+function fetchData(url) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (!url) {
+        reject("URL is required");
+      } else {
+        resolve(`Data from ${url}`);
+      }
+    }, 1000);
+  });
+}
+
+function processData(data) {
+  return new Promise((resolve, reject) => {
+    if (!data) {
+      reject("Data is required");
+    } else {
+      resolve(data.toUpperCase());
+    }
+  });
+}
+
+async function main() {
+  try {
+    const data = await fetchData("https://example.com");
+
+    try {
+      const processedData = await processData(data);
+      console.log("Processed Data:", processedData);
+    } catch {
+      console.error("Process Error:", err);
+    }
+  } catch {
+    console.error("Fetch Error", err);
+  }
+}
+
+main();
+```
