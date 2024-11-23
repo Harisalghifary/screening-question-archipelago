@@ -120,3 +120,39 @@ async function main() {
 
 main();
 ```
+
+4. Create chat apps
+   > TODO create apps and deploy to aws
+
+## Vue
+
+> TODO after create apps
+
+## Web Security
+
+Tell me all the security best practices you can think of - start with the most important ones first. \
+Answer:
+
+1. Using HTTPS
+2. Secure apps: \
+   a. Sanitize and validate input \
+   b. Encrypted privacy and importand data (password, user PII, etc) \
+3. Strong Password
+4. Implement Auth and Access Control
+5. Secure API
+6. Update Software (library, plugins, framework)
+7. Rate Limiter
+8. Avoid Harcoded Secret
+
+## Website Performance Best Practises
+
+Tell me all the performance best practices you can think of - start with the most important ones first. \
+Answer:
+
+1. Database and API Optimization
+2. Implement cache (backend and frontend)
+3. Use CDN
+4. Images Optimization
+5. Compress Assets
+6. Implement Lazy Loading
+7. Reduce Server Response Time
