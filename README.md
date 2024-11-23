@@ -156,3 +156,62 @@ Answer:
 5. Compress Assets
 6. Implement Lazy Loading
 7. Reduce Server Response Time
+
+## Golang
+
+Create a function that counts the word frequency in this string "Four, One two two three Three three four four four". Case insensitive, ignore punctuation.
+
+```go
+package main
+
+import (
+	"fmt"
+	"regexp"
+	"strings"
+)
+
+func countWordFrequency(s string) map[string]int {
+	tempStr := strings.ToLower(s)
+	// sanitize the input
+	re := regexp.MustCompile(`[^a-z0-9\s]`)
+	tempStr = re.ReplaceAllString(tempStr, "")
+
+	words := strings.Fields(tempStr)
+	wordFreq := make(map[string]int)
+
+	for _, w := range words {
+		wordFreq[w]++
+	}
+
+	return wordFreq
+
+}
+
+func main() {
+
+	inputStr := "Four, One two two three Three three four  four   four"
+	res := countWordFrequency(inputStr)
+
+	for word, count := range res {
+		fmt.Printf("%s => %d\n", word, count)
+	}
+
+	return
+}
+
+```
+
+## Rate Tools
+
+- Git 4
+- Redis 4
+- VSCode / JetBrains? 5 / 1
+- Linux? 4
+- AWS 4
+  - EC2 4
+  - Lambda 2
+  - RDS 4
+  - Cloudwatch 1
+  - S3 4
+- Unit testing 4
+- Kanban boards 4
