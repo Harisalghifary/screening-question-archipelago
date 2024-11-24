@@ -126,7 +126,7 @@ main();
    > Screenshoot from 2 window chat with channel
    > ![alt text](chat-example.png)
 
-   Demo: Link-Demo
+   Demo: [AWS-Demo-Link](http://52.77.230.80:5173/)
 
    Source: \
    backend: [websocket-app](https://github.com/Harisalghifary/simple-websocket) \
