@@ -122,11 +122,63 @@ main();
 ```
 
 4. Create chat apps
-   > TODO create apps and deploy to aws
+
+   > Screenshoot from 2 window chat with channel
+   > ![alt text](chat-example.png)
+
+   Demo: Link-Demo
+
+   Source: \
+   backend: [websocket-app](https://github.com/Harisalghifary/simple-websocket) \
+   frontend: [chat-app](https://github.com/Harisalghifary/chat-app)
 
 ## Vue
 
-> TODO after create apps
+1. Explain Vue.js reactivity and common issues when tracking changes \
+   Answer:
+
+```text
+a. Vue.js reactivity is track the dependencies using reactive system. Reactive props (reactive, ref, etc) changes will update the DOM.
+b. Common issues when tracking changes is direct mutate arrays, deeply nested object
+```
+
+2. Describe data flow between components in a Vue.js app \n
+   Answer:
+
+```text
+1. Parent to Child: Use props to pass data.
+2. Child to Parent: Emit custom events using $emit.
+3. Dependency Injection: Inject and provide for deep component.
+4. Sibling Components: Share state using Vuex, Pinia, or an event bus.
+
+```
+
+3. List the most common cause of memory leaks in Vue.js apps and how they can be solved. \
+   Answer:
+
+```text
+1. Unremove Event Listener
+   solution : Clean up in beforeDestroy/onUnmounted
+2. Unclosed Reactive Ref
+   solution : Manually clean up or use smaller scopes
+3. Let Timers/Intervals running
+   solution: Clear them in lifecycle hooks
+```
+
+4. What have you used for state management \
+   Answer:
+
+```text
+Vuex, props, and events
+```
+
+5. What’s the difference between pre-rendering and server side rendering? \
+   Answer:
+
+```text
+Pre-rendering: static load html in build time. good for static pages like company profile
+Server-side rendering: html rendered on server in each request. good for SEO and dynamic contenct
+```
 
 ## Web Security
 
@@ -136,7 +188,7 @@ Answer:
 1. Using HTTPS
 2. Secure apps: \
    a. Sanitize and validate input \
-   b. Encrypted privacy and importand data (password, user PII, etc) \
+   b. Encrypted privacy and importand data (password, user PII, etc)
 3. Strong Password
 4. Implement Auth and Access Control
 5. Secure API
