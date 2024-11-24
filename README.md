@@ -1,5 +1,66 @@
 # screening-question-archipelago
 
+## Basic Question
+
+Imagine you're building a website that allows users to submit photos. One of the requirements is that each photo must be reviewed by a moderator before it can be published. How would you design the logic for this process? What technologies would you use? Do you have any data structure in mind to support this based on your technology of choice to handle those data? \
+Answer:
+
+1. Design The Logic Process
+
+```
+Flow : Photo Submission -> Moderation -> Post Moderation
+
+Here's a bit explanation from my flow:
+1. User upload photo/image on website
+2. Photo will save to s3 and the link store to our database sql will related data and marked it as "pending".
+3. Notify Moderator (if new photo uploaded)
+4. Moderation Process:
+    a. Approve -> will make photo published and mark as "Approved"
+    b. Reject -> will make photo unpublished and mark as "Rejected"
+  > Store the data as history (history purpose)
+5. Send notify to user for the submission status
+```
+
+2. Technology
+
+```
+Backend: Use Golang or Nodejs
+Frontend: Vuejs
+Storage: Postgresql as Database, S3 as image storage
+MQ: RabbitMQ or NSQ
+Notification: Firebase(notify) or Sendgrid(email)
+
+```
+
+3. Data Structure
+
+```text
+Users:
+- id (PK)
+- name
+- email
+- role (user/moderator)
+- created_at
+- updated_at
+
+Photos:
+- id (PK)
+- user_id (FK to Users)
+- file_url (stored in cloud storage like s3)
+- status (enum: 'Pending', 'Approved', 'Rejected')
+- created_at
+- updated_at
+
+Moderation_History:
+- id (PK)
+- photo_id (FK to Photos)
+- moderator_id (FK to Users)
+- action (enum: 'Approve', 'Reject')
+- reason (optional)
+- created_at
+- updated_at
+```
+
 ## Database Question
 
 1.⁠ ⁠Write a SQL query that shows me how many customers there are from Germany. \
